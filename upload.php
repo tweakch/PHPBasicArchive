@@ -46,7 +46,7 @@
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             try {
-                $conn = new PDO("mysql:host={$host};dbname={$dbname}", $username, $password);
+                $conn = new PDO("mysql:host={$host};dbname={$dbname}", $username, $passwd);
                 // set the PDO error mode to exception
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
