@@ -15,7 +15,7 @@
   <?php include __DIR__ . '/nav.php'; ?>
   <div class="jumbotron jumbotron-fluid bg-transparent">
     <div class="container">
-      <h1 class="display-4">PHPBasicArchive</h1>
+      <h1 class="display-4">PHP Basic Archive</h1>
       <p class="lead">Upload a file to store it in the archive.</p>
       <hr>
       <form action="upload.php" method="post" enctype="multipart/form-data">

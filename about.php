@@ -11,9 +11,9 @@
   </head>
   <body>
     <?php include __DIR__ . '/nav.php'; ?>
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid bg-transparent">
       <div class="container">
-          <h1 class="display-4">PHPBasicArchive</h1>
+          <h1 class="display-4">About</h1>
           <p class="lead">A simple archive in PHP.</p>
           <hr>
           <p>PHPBasicArchive is a sample project featuring a simple archive in php by <a href="https://github.com/tweakch">tweakch</a>.</p>
