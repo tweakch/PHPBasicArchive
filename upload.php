@@ -15,7 +15,7 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <?php // read the .ini file and create an associative array
-                    include 'lib/tweakch/archive/database_archive.php';
+                    #include 'lib/tweakch/archive/database_archive.php';
                     include 'lib/tweakch/archive/filesystem_archive.php';
 
                     $archive = new FileSystemArchive("config.ini");
