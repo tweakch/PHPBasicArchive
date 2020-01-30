@@ -1,6 +1,6 @@
 <?php 
 
-include __DIR__ . '/archive_base.php';
+include __DIR__ . '/filesystem_archive.php';
 
 class DatabaseArchive extends FileSystemArchive  {
   // Properties

@@ -10,7 +10,7 @@ class MemoryArchive extends ArchiveBase {
     function __construct($config){
         parent::__construct($config);
         $this->store = array();
-        this->loadStore();
+        $this->loadStore();
     }
 
     function loadStore() {

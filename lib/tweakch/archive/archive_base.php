@@ -37,11 +37,11 @@ class ArchiveBase {
   # gets random path
   function get_path() {
     $name = rand(1,$this->partition);
-    return this->get_path($name);
+    return $this->get_path_by_name($name);
   }
 
   # gets a random path with the specified name
-  function get_path($name) {
+  function get_path_by_name($name) {
     $arr = array($this->rootDir);
     for($x = 0; $x < $this->height; $x++){
       array_push($arr, rand(0,$this->degree-1));
