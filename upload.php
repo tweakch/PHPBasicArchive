@@ -29,8 +29,13 @@
                     } 
                     catch(PDOException $e) 
                     {
-                        $title = "an error occurred";
+                        $title = "An error occurred";
                         $message = "Sorry, the database connection failed: " . $e->getMessage();
+                    }
+                    catch(Exception $e)
+                    {
+                        $title = "An error occurred";
+                        $message = $e->getMessage();
                     }
                 ?> 
                 <h1 class="display-4"><?php echo $header; ?></h1>

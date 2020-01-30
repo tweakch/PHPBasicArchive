@@ -18,59 +18,41 @@ class FileSystemArchive extends ArchiveBase  {
     }
 
     function add_file($file) {
-        # find a free path in the filesystem
-        do{
-            $target_file = $this->get_path($file["name"]);
-        } while(file_exists($target_file));
         
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($file["name"],PATHINFO_EXTENSION));
         // Check if image file is a actual image or fake image
         if(isset($_POST["submit"])) {
             $check = getimagesize($file["tmp_name"]);
-            if($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
-                $uploadOk = 0;
+            if($check == false) {
+                throw new Exception("File is not an image.");
             }
         }
 
         // Check file size
         if ($file["size"] > $this->max_size) {
-            echo "Sorry, your file is too large.";
-            $uploadOk = 0;
+            throw new Exception("Sorry, your file is too large.");
         }
 
         // Allow certain file formats
+        $imageFileType = strtolower(pathinfo($file["name"],PATHINFO_EXTENSION));
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            $uploadOk = 0;
+            throw new Exception("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
         }
 
-        // Check if $uploadOk is set to 0 by an error
-        if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
-        // if everything is ok, try to upload file
-        } else {
-	    $pos = strripos($target_file,"/");
-            $target_path = substr($target_file,0,$pos);
-	    if(!is_dir($target_path)){
-                $processUser = posix_getpwuid(posix_geteuid());
-                echo $target_path;
+        # find a free path in the archive
+        do{
+            $target_file = $this->get_path($file["name"]);
+        } while(file_exists($target_file));
 
-
-
-                mkdir($target_path,0777,true);    
-            }
-            if (move_uploaded_file($file["tmp_name"], $target_file)) {
-                echo "The file ". basename( $file["name"]). " has been uploaded.";
-            } else {
-                echo "Sorry, there was an error uploading your file.";
-            }
-            return $target_file;
+        // Create the directory if it does not exist
+        $target_path = substr($target_file,0,strripos($target_file,"/"));
+        if(!is_dir($target_path)){
+            mkdir($target_path,0750,true);    
         }
+
+        if (!move_uploaded_file($file["tmp_name"], $target_file)) {
+            throw new Exception("Sorry, there was an error uploading your file.");
+        }
+        return $target_file;
     }     
 }
 
