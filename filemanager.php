@@ -1717,7 +1717,7 @@ function fm_show_header()
 <title>PHP File Manager</title>
 <style>
 html,body,div,span,p,pre,a,code,em,img,small,strong,ol,ul,li,form,label,table,tr,th,td{margin:0;padding:0;vertical-align:baseline;outline:none;font-size:100%;background:transparent;border:none;text-decoration:none}
-html{overflow-y:scroll}body{padding:0;font:13px/16px Tahoma,Arial,sans-serif;color:#222;background:#efefef}
+html{overflow-y:scroll}body{padding:0;color:#222;background:#efefef}
 input,select,textarea,button{font-size:inherit;font-family:inherit}
 a{color:#296ea3;text-decoration:none}a:hover{color:#b00}img{vertical-align:middle;border:none}
 a img{border:none}span.gray{color:#777}small{font-size:11px;color:#999}p{margin-bottom:10px}
@@ -1774,7 +1774,8 @@ code.maxheight,pre.maxheight{max-height:512px}input[type="checkbox"]{margin:0;pa
 <?php endif; ?>
 </head>
 <body>
-<div id="wrapper">
+<?php include __DIR__ . '/nav.php'; ?>
+<div id="container">
 <?php
 }
 

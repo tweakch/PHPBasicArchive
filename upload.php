@@ -11,6 +11,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <?php include __DIR__ . '/nav.php'; ?>
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <?php // read the .ini file and create an associative array
