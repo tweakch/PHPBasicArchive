@@ -1,32 +1,39 @@
 <html>
-  <head>
-    <title>Basic Archive</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-          <h1 class="display-4">PHPBasicArchive</h1>
-          <p class="lead">A simple archive in PHP.</p>
-          <hr>
-          <p>PHPBasicArchive is a simple archive in php by <a href="https://github.com/tweakch">tweakch</a>.</p>
-          <a class="btn btn-primary btn-lg" href="https://github.com/tweakch/PHPBasicArchive" role="button">View on github</a>
-      </div>
-    </div>
+
+<head>
+  <title>Basic Archive</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <?php include __DIR__ . '/nav.php'; ?>
+  <div class="jumbotron jumbotron-fluid bg-transparent">
     <div class="container">
-      <div class="row">
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            Select image to upload:
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            <input type="submit" value="Upload Image" name="submit">
-        </form>
+      <h1 class="display-4">PHPBasicArchive</h1>
+      <p class="lead">Upload a file to store it in the archive.</p>
+      <hr>
+      <form action="upload.php" method="post" enctype="multipart/form-data">
+        <input class="btn" type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload" class="btn btn-primary" href="https://github.com/tweakch/PHPBasicArchive"
+          role="button" />
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="/uploads/filemanager.php" class="btn btn-primary">Open archive</a>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
