@@ -29,12 +29,12 @@
                     } 
                     catch(PDOException $e) 
                     {
-                        $title = "An error occurred";
+                        $header = "An error occurred";
                         $message = "Sorry, the database connection failed: " . $e->getMessage();
                     }
                     catch(Exception $e)
                     {
-                        $title = "An error occurred";
+                        $header = "An error occurred";
                         $message = $e->getMessage();
                     }
                 ?> 
