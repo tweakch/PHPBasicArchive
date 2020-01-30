@@ -22,7 +22,7 @@ $highlightjs_style = 'vs';
 $default_timezone = 'Europe/Berlin'; // UTC+3
 
 // Root path for file manager
-$root_path = __DIR__; //$_SERVER['DOCUMENT_ROOT'];
+$root_path = __DIR__ . "/uploads"; //$_SERVER['DOCUMENT_ROOT'];
 
 // Root url for links in file manager.Relative to $http_host. Variants: '', 'path/to/subfolder'
 // Will not working if $root_path will be outside of server document root
