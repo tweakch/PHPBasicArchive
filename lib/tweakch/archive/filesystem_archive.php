@@ -20,11 +20,11 @@ class FileSystemArchive extends ArchiveBase  {
     function add_file($file) {
         # find a free path in the filesystem
         do{
-        $target_file = $this->get_path($file["name"]);
-        } while(!file_exists($target_file));
+            $target_file = $this->get_path($file["name"]);
+        } while(file_exists($target_file));
         
         $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $imageFileType = strtolower(pathinfo($file["name"],PATHINFO_EXTENSION));
         // Check if image file is a actual image or fake image
         if(isset($_POST["submit"])) {
             $check = getimagesize($file["tmp_name"]);
@@ -53,7 +53,17 @@ class FileSystemArchive extends ArchiveBase  {
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
         // if everything is ok, try to upload file
-        } else {    
+        } else {
+	    $pos = strripos($target_file,"/");
+            $target_path = substr($target_file,0,$pos);
+	    if(!is_dir($target_path)){
+                $processUser = posix_getpwuid(posix_geteuid());
+                echo $target_path;
+
+
+
+                mkdir($target_path,0777,true);    
+            }
             if (move_uploaded_file($file["tmp_name"], $target_file)) {
                 echo "The file ". basename( $file["name"]). " has been uploaded.";
             } else {
