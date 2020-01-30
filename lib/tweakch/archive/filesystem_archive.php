@@ -35,7 +35,7 @@ class FileSystemArchive extends ArchiveBase  {
 
         // Allow certain file formats
         $ext = strtolower(pathinfo($file["name"],PATHINFO_EXTENSION));
-        $allowed = isset(split(",",$this->allowed_files)[$ext]);
+        $allowed = in_array($ext,explode(",",$this->allowed_files));
         if(!$allowed) {
             throw new Exception("Sorry, only {$this->allowed_files} files are allowed.");
         }
