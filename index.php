@@ -1,5 +1,3 @@
-
-
 <html>
   <head>
     <title>Basic Archive</title>
@@ -12,10 +10,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Upload Image" name="submit">
-    </form>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+          <h1 class="display-4">PHPBasicArchive</h1>
+          <p class="lead">A simple archive in PHP.</p>
+          <hr>
+          <p>PHPBasicArchive is a simple archive in php by <a href="https://github.com/tweakch">tweakch</a>.</p>
+          <a class="btn btn-primary btn-lg" href="https://github.com/tweakch/PHPBasicArchive" role="button">View on github</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+        </form>
+      </div>
+    </div>
   </body>
 </html>
